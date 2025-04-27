@@ -1,0 +1,35 @@
+.text {
+  font-family: "SF Pro Display", sans-serif;
+
+  &--size-300 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &--size-400 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &--size-500 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  &--weight-default {
+    font-weight: 400;
+  }
+
+  &--weight-medium {
+    font-weight: 500;
+  }
+
+  &--weight-semibold {
+    font-weight: 600;
+  }
+
+  &--link {
+    color: #007bff;
+    text-decoration: underline;
+  }
+}
