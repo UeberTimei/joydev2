@@ -4,7 +4,6 @@
 
    - Инициализировать проект с React, TypeScript, module CSS.
    - Установить зависимости: `react`, `react-dom`, `classnames`, `react-router-dom` (для роутинга).
-   - Настроить линтеры (ESLint, Stylelint) и Prettier для соблюдения кодстайла.
    - Создать базовую структуру проекта: `src/App.tsx`, `src/pages`, `src/components`.
 
 2. **ui-kit: Реализация меню и роутинга**
