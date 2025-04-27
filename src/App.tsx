@@ -16,7 +16,7 @@ function App() {
       <Menu className="app__menu" />
       <main className="app__content">
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/headingsPage" element={<HeadingsPage />} />
           <Route path="/textPage" element={<TextPage />} />
           <Route path="/paragraphsPage" element={<ParagraphsPage />} />

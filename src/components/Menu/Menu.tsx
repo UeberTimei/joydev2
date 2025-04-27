@@ -9,6 +9,7 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ className }) => {
   const menuItems = [
+    { path: "/welcome", label: "Welcome" },
     { path: "/headingsPage", label: "HeadingsPage" },
     { path: "/textPage", label: "TextPage" },
     { path: "/paragraphsPage", label: "ParagraphsPage" },
