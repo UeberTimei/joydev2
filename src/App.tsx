@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Menu from "./components/Menu/Menu";
 import HeadingsPage from "./pages/HeadingsPage/HeadingsPage";
 import TextPage from "./pages/TextPage/TextPage";
@@ -16,6 +16,7 @@ function App() {
       <Menu className="app__menu" />
       <main className="app__content">
         <Routes>
+          <Route path="*" element={<Navigate to="/welcome" />} />
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/headingsPage" element={<HeadingsPage />} />
           <Route path="/textPage" element={<TextPage />} />
