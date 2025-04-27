@@ -1,0 +1,38 @@
+@mixin heading-level($weight, $size, $line-height, $margin-top) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+  margin-top: $margin-top;
+}
+
+.heading {
+  font-family: "SF Pro Display", sans-serif;
+
+  &.level900 {
+    @include heading-level(900, 56px, 64px, 52px);
+  }
+  &.level800 {
+    @include heading-level(800, 48px, 56px, 40px);
+  }
+  &.level700 {
+    @include heading-level(700, 40px, 48px, 28px);
+  }
+  &.level600 {
+    @include heading-level(600, 28px, 40px, 24px);
+  }
+  &.level500 {
+    @include heading-level(500, 24px, 36px, 24px);
+  }
+  &.level400 {
+    @include heading-level(400, 20px, 32px, 16px);
+  }
+  &.level300 {
+    @include heading-level(300, 20px, 28px, 16px);
+  }
+  &.level200 {
+    @include heading-level(200, 18px, 24px, 16px);
+  }
+  &.level100 {
+    @include heading-level(100, 16px, 20px, 16px);
+  }
+}
