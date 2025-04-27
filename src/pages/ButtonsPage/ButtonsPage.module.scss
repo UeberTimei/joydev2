@@ -1,0 +1,13 @@
+.buttonsPage {
+  padding: 40px;
+
+  &__section {
+    margin-bottom: 40px;
+  }
+
+  &__group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}
