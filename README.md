@@ -1,54 +1,83 @@
-# React + TypeScript + Vite
+# Декомпозиция задач
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. **main: Настройка проекта**
 
-Currently, two official plugins are available:
+   - Инициализировать проект с React, TypeScript, module CSS.
+   - Установить зависимости: `react`, `react-dom`, `classnames`, `react-router-dom` (для роутинга).
+   - Настроить линтеры (ESLint, Stylelint) и Prettier для соблюдения кодстайла.
+   - Создать базовую структуру проекта: `src/App.tsx`, `src/pages`, `src/components`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. **ui-kit: Реализация меню и роутинга**
 
-## Expanding the ESLint configuration
+   - Создать компонент `Menu` в `src/components/Menu`.
+   - Настроить роутинг в `App.tsx` с использованием `react-router-dom` для перехода между страницами.
+   - Реализовать маршруты для всех страниц: welcome, headings, text, paragraphs, buttons, cards, badges, toast.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. **feature/welcome: Реализация страницы приветствия**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   - Создать страницу `WelcomePage.tsx` в `src/pages`.
+   - Добавить большую надпись "UI KIT" и ФИО исполнителя.
+   - Стилизовать страницу согласно дизайну.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4. **feature/headings: Реализация компонента Headings и страницы**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   - Создать компонент `Heading` в `src/components/Heading` с файлами `Heading.tsx` и `Heading.module.scss`.
+   - Реализовать вариативность через пропсы (например, `level`, `weight`).
+   - Использовать TypeScript, `classnames` и упрощённый БЭМ.
+   - Создать страницу `HeadingsPage.tsx` в `src/pages` с примерами использования.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+5. **feature/text: Реализация компонента Text и страницы**
+
+   - Создать компонент `Text` в `src/components/Text` с файлами `Text.tsx` и `Text.module.scss`.
+   - Поддерживать пропсы для размера, цвета, начертания.
+   - Использовать TypeScript, `classnames` и упрощённый БЭМ.
+   - Создать страницу `TextPage.tsx` в `src/pages` с примерами использования.
+
+6. **feature/paragraphs: Реализация компонента Paragraphs и страницы**
+
+   - Создать компонент `Paragraph` в `src/components/Paragraph` с файлами `Paragraph.tsx` и `Paragraph.module.scss`.
+   - Реализовать вариативность через пропсы (например, `size`, `align`).
+   - Использовать TypeScript, `classnames` и упрощённый БЭМ.
+   - Создать страницу `ParagraphsPage.tsx` в `src/pages` с примерами использования.
+
+7. **feature/buttons: Реализация компонента Buttons и страницы**
+
+   - Создать компонент `Button` в `src/components/Button` с файлами `Button.tsx` и `Button.module.scss`.
+   - Поддерживать пропсы для размера, варианта, состояния (`disabled`).
+   - Использовать TypeScript, `classnames` и упрощённый БЭМ.
+   - Создать страницу `ButtonsPage.tsx` в `src/pages` с примерами использования.
+
+8. **feature/cards: Реализация компонента Cards и страницы**
+
+   - Создать компонент `Card` в `src/components/Card` с файлами `Card.tsx` и `Card.module.scss`.
+   - Реализовать вариативность через пропсы (например, `variant`, `shadow`).
+   - Использовать TypeScript, `classnames` и упрощённый БЭМ.
+   - Создать страницу `CardsPage.tsx` в `src/pages` с примерами использования.
+
+9. **feature/badges: Реализация компонента Badges и страницы**
+
+   - Создать компонент `Badge` в `src/components/Badge` с файлами `Badge.tsx` и `Badge.module.scss`.
+   - Поддерживать пропсы для цвета, размера, формы.
+   - Использовать TypeScript, `classnames` и упрощённый БЭМ.
+   - Создать страницу `BadgesPage.tsx` в `src/pages` с примерами использования.
+
+10. **feature/toast: Реализация компонента Toast и страницы**
+
+    - Создать компонент `Toast` в `src/components/Toast` с файлами `Toast.tsx` и `Toast.module.scss`.
+    - Реализовать вариативность через пропсы (например, `type`, `position`).
+    - Использовать TypeScript, `classnames` и упрощённый БЭМ.
+    - Создать страницу `ToastPage.tsx` в `src/pages` с примерами использования.
+
+11. **feature/deployment: Развертывание на GitHub Pages**
+
+    - Установить пакет `gh-pages`.
+    - Настроить скрипты в `package.json` для деплоя (`deploy`, `predeploy`).
+    - Опубликовать проект на GitHub Pages.
+    - Добавить ссылку на стенд в README.
+
+12. **feature/readme: Оформление README**
+
+    - Описать проект, его цель и структуру.
+    - Включить декомпозицию задач (как выше).
+    - Добавить инструкции по запуску проекта (`npm install`, `npm start`).
+    - Указать ссылку на GitHub Pages.
