@@ -1,0 +1,88 @@
+.badge {
+  font-family: "SF Pro Text", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+}
+
+.pill {
+  border-radius: 16px;
+}
+
+.subtle {
+  &.neutral {
+    background-color: #e5e7eb;
+    color: #1f2a44;
+  }
+  &.green {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  &.blue {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  &.red {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  &.orange {
+    background-color: #ffedd5;
+    color: #9a3412;
+  }
+  &.purple {
+    background-color: #ede9fe;
+    color: #5b21b6;
+  }
+  &.yellow {
+    background-color: #fef9c3;
+    color: #854d0e;
+  }
+  &.teal {
+    background-color: #ccfbf1;
+    color: #115e59;
+  }
+}
+
+.solid {
+  &.neutral {
+    background-color: #1f2a44;
+    color: #ffffff;
+  }
+  &.green {
+    background-color: #059669;
+    color: #ffffff;
+  }
+  &.blue {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+  &.red {
+    background-color: #dc2626;
+    color: #ffffff;
+  }
+  &.orange {
+    background-color: #ea580c;
+    color: #ffffff;
+  }
+  &.purple {
+    background-color: #7c3aed;
+    color: #ffffff;
+  }
+  &.yellow {
+    background-color: #facc15;
+    color: #78350f;
+  }
+  &.teal {
+    background-color: #0d9488;
+    color: #ffffff;
+  }
+}
