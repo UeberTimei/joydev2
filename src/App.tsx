@@ -9,6 +9,18 @@ import BadgesPage from "./pages/BadgesPage/BadgesPage";
 import ToastPage from "./pages/ToastPage/ToastPage";
 import "./App.scss";
 import WelcomePage from "./pages/Welcome/Welcome";
+import { routes } from "./routes";
+
+const pageComponents = {
+  "/welcome": WelcomePage,
+  "/headingsPage": HeadingsPage,
+  "/textPage": TextPage,
+  "/paragraphsPage": ParagraphsPage,
+  "/buttonsPage": ButtonsPage,
+  "/cardsPage": CardsPage,
+  "/badgesPage": BadgesPage,
+  "/toastPage": ToastPage,
+} as const;
 
 function App() {
   return (
@@ -17,14 +29,10 @@ function App() {
       <main className="app__content">
         <Routes>
           <Route path="*" element={<Navigate to="/welcome" />} />
-          <Route path="/welcome" element={<WelcomePage />} />
-          <Route path="/headingsPage" element={<HeadingsPage />} />
-          <Route path="/textPage" element={<TextPage />} />
-          <Route path="/paragraphsPage" element={<ParagraphsPage />} />
-          <Route path="/buttonsPage" element={<ButtonsPage />} />
-          <Route path="/cardsPage" element={<CardsPage />} />
-          <Route path="/badgesPage" element={<BadgesPage />} />
-          <Route path="/toastPage" element={<ToastPage />} />
+          {routes.map(({ path }) => {
+            const Component = pageComponents[path];
+            return <Route key={path} path={path} element={<Component />} />;
+          })}
         </Routes>
       </main>
     </div>

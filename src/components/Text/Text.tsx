@@ -19,9 +19,9 @@ const Text: React.FC<TextProps> = ({
 }) => {
   const textClass = classNames(
     styles.text,
+    styles[`text--size-${size}`],
+    styles[`text--weight-${weight}`],
     {
-      [styles[`text--size-${size}`]]: size,
-      [styles[`text--weight-${weight}`]]: weight,
       [styles["text--link"]]: isLink,
     },
     className

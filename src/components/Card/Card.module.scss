@@ -12,24 +12,21 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  border: 1px solid #e0e0e0;
 
   &--elevation-0 {
-    border: 1px solid #e0e0e0;
     box-shadow: none;
   }
 
   &--elevation-1 {
-    border: 1px solid #e0e0e0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   &--elevation-2 {
-    border: 1px solid #e0e0e0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
   &--elevation-3 {
-    border: 1px solid #e0e0e0;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 }

@@ -2,23 +2,13 @@ import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./Menu.module.scss";
 import { useState } from "react";
+import { routes as menuItems } from "../../routes";
 
 interface MenuProps {
   className?: string;
 }
 
 const Menu: React.FC<MenuProps> = ({ className }) => {
-  const menuItems = [
-    { path: "/welcome", label: "Welcome" },
-    { path: "/headingsPage", label: "HeadingsPage" },
-    { path: "/textPage", label: "TextPage" },
-    { path: "/paragraphsPage", label: "ParagraphsPage" },
-    { path: "/buttonsPage", label: "ButtonsPage" },
-    { path: "/cardsPage", label: "CardsPage" },
-    { path: "/badgesPage", label: "BadgesPage" },
-    { path: "/toastPage", label: "ToastPage" },
-  ];
-
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);

@@ -15,12 +15,7 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const cardClasses = classNames(
     styles.card,
-    {
-      [styles["card--elevation-0"]]: elevation === 0,
-      [styles["card--elevation-1"]]: elevation === 1,
-      [styles["card--elevation-2"]]: elevation === 2,
-      [styles["card--elevation-3"]]: elevation === 3,
-    },
+    [styles[`card--elevation-${elevation}`]],
     className
   );
 

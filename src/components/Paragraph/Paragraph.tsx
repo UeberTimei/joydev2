@@ -9,7 +9,7 @@ interface ParagraphProps {
 }
 
 export const Paragraph: React.FC<ParagraphProps> = ({
-  size,
+  size = 300,
   children,
   className,
 }) => {
@@ -17,9 +17,7 @@ export const Paragraph: React.FC<ParagraphProps> = ({
     <p
       className={cn(
         styles.paragraph,
-        {
-          [styles[`paragraph--size-${size}`]]: size,
-        },
+        [styles[`paragraph--size-${size}`]],
         className
       )}
     >
