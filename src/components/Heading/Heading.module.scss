@@ -6,7 +6,7 @@
 }
 
 .heading {
-  font-family: "SF Pro Display", sans-serif;
+  font-family: variables.$font-family-display;
 
   &.level900 {
     @include heading-level(900, 56px, 64px, 52px);

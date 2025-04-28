@@ -15,7 +15,7 @@
   &__subtitle {
     position: absolute;
     top: -50px;
-    font-family: "SF Pro Display", sans-serif;
+    font-family: variables.$font-family-display;
     font-size: 20px;
     font-weight: 500;
     margin: 0 0 10px;

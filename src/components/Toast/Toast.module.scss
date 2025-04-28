@@ -6,12 +6,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   background-color: #fff;
   margin-bottom: 16px;
-  font-family: "SF Pro Text", sans-serif;
+  font-family: variables.$font-family-text;
   position: relative;
   width: 400px;
 
   &.hasDescription {
-    min-width: 535px; /* Минимальная ширина 535px, если есть описание */
+    min-width: 535px;
   }
 }
 
