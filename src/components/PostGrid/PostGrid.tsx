@@ -16,13 +16,21 @@ interface PostGridProps {
 }
 
 const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
+  if (posts.length === 0) {
+    return (
+      <Text size={400} className={styles.noResults}>
+        По вашему запросу ничего не найдено
+      </Text>
+    );
+  }
+
   return (
     <div className={styles.postGrid}>
       {posts.map((post) => (
         <Card key={post.id} elevation={1} className={styles.postGrid__card}>
-          <Heading level={400}>{post.title}</Heading>
-          <Text size={300}>{post.body}</Text>
-          <Text size={300} weight="medium">
+          <Heading level={600}>{post.title}</Heading>
+          <Text size={500}>{post.body}</Text>
+          <Text size={400} weight="medium">
             Автор: {post.authorName}
           </Text>
         </Card>
