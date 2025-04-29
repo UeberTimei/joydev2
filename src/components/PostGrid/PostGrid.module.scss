@@ -1,0 +1,14 @@
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+
+  &__card {
+    padding: 16px;
+  }
+}
+
+.noResults {
+  text-align: center;
+  margin-top: 24px;
+}
