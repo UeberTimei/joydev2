@@ -6,12 +6,16 @@ interface CardProps {
   elevation?: 0 | 1 | 2 | 3;
   children: React.ReactNode;
   className?: string;
+  draggable?: boolean;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
 export const Card: React.FC<CardProps> = ({
   elevation = 0,
   children,
   className,
+  draggable = false,
+  onDragStart,
 }) => {
   const cardClasses = classNames(
     styles.card,
@@ -19,5 +23,13 @@ export const Card: React.FC<CardProps> = ({
     className
   );
 
-  return <div className={cardClasses}>{children}</div>;
+  return (
+    <div
+      className={cardClasses}
+      draggable={draggable}
+      onDragStart={onDragStart}
+    >
+      {children}
+    </div>
+  );
 };

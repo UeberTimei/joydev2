@@ -3,7 +3,7 @@ import { Column } from "../../components/Column/Column";
 import Heading from "../../components/Heading/Heading";
 import Button from "../../components/Button/Button";
 import styles from "./General.module.scss";
-import { Task, Column as ColumnType } from "../../types";
+import { Task, Column as ColumnType, TaskStatus } from "../../types";
 import { Card } from "../../components/Card/Card";
 import { Modal } from "../../components/Modal/Modal";
 
@@ -85,6 +85,14 @@ const GeneralPage: React.FC = () => {
     return task ? task.title : "";
   };
 
+  const handleDrop = (taskId: string, newStatus: TaskStatus) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, status: newStatus } : task
+      )
+    );
+  };
+
   return (
     <div className={styles.generalPage}>
       <Heading level={600} className={styles.pageTitle}>
@@ -124,6 +132,7 @@ const GeneralPage: React.FC = () => {
             column={column}
             tasks={tasks.filter((task) => task.status === column.id)}
             onDelete={handleDeleteClick}
+            onDrop={handleDrop}
           />
         ))}
       </div>
