@@ -1,0 +1,54 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 250px;
+  background-color: #f0f0f0;
+  border: 1px solid #d4dcff;
+  padding: 0px 10px 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.columnTitle {
+  margin-bottom: 10px;
+  text-align: center;
+  user-select: none;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+.emptyTasks {
+  padding-bottom: 100px;
+}
+
+.taskCard {
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background: #e9e9e9;
+    cursor: grab;
+  }
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.deleteIcon {
+  cursor: pointer;
+  color: red;
+  user-select: none;
+
+  &:hover {
+    color: darkred;
+  }
+}
