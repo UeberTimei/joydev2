@@ -8,9 +8,10 @@ import { Column as ColumnType, Task } from "../../types";
 type ColumnProps = {
   column: ColumnType;
   tasks: Task[];
+  onDelete: (taskId: string) => void;
 };
 
-export const Column: React.FC<ColumnProps> = ({ column, tasks }) => {
+export const Column: React.FC<ColumnProps> = ({ column, tasks, onDelete }) => {
   return (
     <div className={styles.column}>
       <Heading level={400} className={styles.columnTitle}>
@@ -23,7 +24,11 @@ export const Column: React.FC<ColumnProps> = ({ column, tasks }) => {
               {task.title}
             </Text>
             <Text>{task.description}</Text>
-            <span role="button" className={styles.deleteIcon}>
+            <span
+              role="button"
+              className={styles.deleteIcon}
+              onClick={() => onDelete(task.id)}
+            >
               <Text>✕</Text>
             </span>
           </Card>

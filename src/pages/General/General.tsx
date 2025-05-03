@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Column } from "../../components/Column/Column";
 import Heading from "../../components/Heading/Heading";
 import Button from "../../components/Button/Button";
 import styles from "./General.module.scss";
 import { Task, Column as ColumnType } from "../../types";
 import { Card } from "../../components/Card/Card";
+import { Modal } from "../../components/Modal/Modal";
 
 const COLUMNS: ColumnType[] = [
   { id: "TODO", title: "To Do" },
@@ -40,7 +41,49 @@ const INITIAL_TASKS: Task[] = [
 ];
 
 const GeneralPage: React.FC = () => {
-  const [tasks, setTasks] = React.useState<Task[]>(INITIAL_TASKS);
+  const [tasks, setTasks] = useState<Task[]>(INITIAL_TASKS);
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [taskToDelete, setTaskToDelete] = useState<string | null>(null);
+
+  const handleAddTask = () => {
+    if (!title.trim()) return;
+
+    const newTask: Task = {
+      id: Date.now().toString(),
+      title,
+      description,
+      status: "TODO",
+    };
+
+    setTasks([...tasks, newTask]);
+    setTitle("");
+    setDescription("");
+  };
+
+  const handleDeleteClick = (taskId: string) => {
+    setTaskToDelete(taskId);
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (taskToDelete) {
+      setTasks(tasks.filter((task) => task.id !== taskToDelete));
+    }
+    setIsModalOpen(false);
+    setTaskToDelete(null);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTaskToDelete(null);
+  };
+
+  const getTaskTitle = () => {
+    const task = tasks.find((t) => t.id === taskToDelete);
+    return task ? task.title : "";
+  };
 
   return (
     <div className={styles.generalPage}>
@@ -48,20 +91,28 @@ const GeneralPage: React.FC = () => {
         Kanban Board
       </Heading>
 
-      <Card className={styles.addTaskCard}>
+      <Card className={styles.addTaskCard} elevation={3}>
         <div className={styles.inputGroup}>
           <div className={styles.inputButtonRow}>
             <input
               type="text"
               placeholder="Task Title"
               className={styles.input}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
-            <Button className={styles.addTaskButton} label="Add Task" />
+            <Button
+              className={styles.addTaskButton}
+              label="Add Task"
+              onClick={handleAddTask}
+            />
           </div>
 
           <textarea
             placeholder="Task Description"
             className={styles.textarea}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
       </Card>
@@ -72,9 +123,17 @@ const GeneralPage: React.FC = () => {
             key={column.id}
             column={column}
             tasks={tasks.filter((task) => task.status === column.id)}
+            onDelete={handleDeleteClick}
           />
         ))}
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirmDelete}
+        title={getTaskTitle()}
+      />
     </div>
   );
 };
